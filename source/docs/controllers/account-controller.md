@@ -1,3 +1,10 @@
+---
+title: Account Controller
+description: Account Controller responsible for account related actions
+extends: _layouts.documentation
+section: content
+---
+
 ## AcountController
 
 #### Brief 

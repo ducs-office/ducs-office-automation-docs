@@ -1,3 +1,11 @@
+---
+title: Attachment Controller
+description: Attachment Controller responsible storeing, viewing and deleting atttachment files.
+extends: _layouts.documentation
+section: content
+---
+
+
 ## AttachmentsController
 
 #### Resource

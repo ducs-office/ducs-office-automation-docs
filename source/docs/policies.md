@@ -1,10 +1,18 @@
+---
+title: Authorization Policies
+description: Authorization Policies responsible for authorizing user actions based on permissions and several rules.
+extends: _layouts.documentation
+section: content
+---
+
+
 [Laravel Policy](https://laravel.com/docs/7.x/authorization#creating-policies)
 
 This is a list of all the policies we have in the application. These policies authorize actions on the resource that they are defined on.
-Apart from using custom logic based on the corresponding requirement the policies throughout the application also authorize the user against essential [permissions](insert_relative_link). 
+Apart from using custom logic based on the corresponding requirement the policies throughout the application also authorize the user against essential [permissions](/docs/permissions). 
 
 The naming convention followed is like so: 
->If there exists an `IncomingLetterPolicy`, it authorizes actions on the `IncomingLetter` model.
+>Note: By convention, to authorize a `update` action on `IncomingLetter` model the framework check if there exists an `IncomingLetterPolicy`, and if it does, it calls the `update` method to check if the user should be allowed to perform the action. If the Policy does not exist or method does not exist, user is _not_ allowed.
 
 ### List of policies
 1. [AttachmentPolicy](#attachment-policy)

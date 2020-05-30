@@ -1,3 +1,10 @@
+---
+title: Models
+description: Models made within the application
+extends: _layouts.documentation
+section: content
+---
+
 This is a list of all the models we have in the application. These models interact with their associated table. 
 
 1. [Attachment](#attachment) 
