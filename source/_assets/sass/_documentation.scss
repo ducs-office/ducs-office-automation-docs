@@ -1,1 +1,25 @@
 // Add your custom styles here
+
+table {
+    @apply border-collapse bg-white shadow-md rounded;
+}
+
+th {
+    @apply border-b-2;
+    @apply px-4 py-2;
+}
+
+td {
+    @apply border-b;
+    @apply px-4 py-1;
+}
+th:first-of-type, td:first-of-type {
+    @apply pl-6 pr-4;
+}
+th:last-of-type, td:last-of-type {
+    @apply pr-6 pl-4;
+}
+
+tr:last-of-type > td {
+    @apply border-b-0;
+}
