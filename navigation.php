@@ -14,5 +14,11 @@ return [
     'Custom Validation Rules' => 'docs/rules',
     'Permissions' => 'docs/permissions',
     'Authorization Policies' => 'docs/policies',
+    'Problem Statment' => 'docs/problem-statment',
+    'Tools Used' => 'docs/tools',
+    'Workflow' => 'docs/workflow',
+    'Trade Offs' => 'docs/trade-offs',
+    'Maintenance' => 'docs/maintenance',
+    'Target Audience' => 'docs/target-audience',
     'Jigsaw Docs' => 'https://jigsaw.tighten.co/docs/installation',
 ];
