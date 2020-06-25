@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => '/',
+    'baseUrl' => '',
     'production' => false,
     'siteName' => 'DUCS Office Portal Docs',
     'siteDescription' => 'Beautiful docs powered by Jigsaw',
@@ -27,6 +27,6 @@ return [
         }
     },
     'url' => function ($page, $path) {
-        return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
+        return Str::startsWith($path, 'http') ? $path : $page->baseUrl . '/' . trimPath($path);
     },
 ];
