@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Trade offs that we face while working on this project.">
+        <meta name="description" content="Trade offs that we faced while working on this project.">
 
         <meta property="og:site_name" content="DUCS Office Portal Docs"/>
-        <meta property="og:title" content="Trade Offs | DUCS Office Portal Docs"/>
-        <meta property="og:description" content="Trade offs that we face while working on this project."/>
+        <meta property="og:title" content="Trade-Offs | DUCS Office Portal Docs"/>
+        <meta property="og:description" content="Trade offs that we faced while working on this project."/>
         <meta property="og:url" content="https://gautamswati.github.io/ducs-office-automation-docs/docs/trade-offs"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>DUCS Office Portal Docs | Trade Offs</title>
+        <title>DUCS Office Portal Docs | Trade-Offs</title>
 
         <link rel="home" href="https://gautamswati.github.io/ducs-office-automation-docs">
         <link rel="icon" href="/favicon.ico">
@@ -296,7 +296,7 @@
 </ol></li>
 </ul></li>
 </ol></li>
-<li><h3>What we implement</h3>
+<li><h3>What we implemented</h3>
 
 <p>Assuming frequency of deletion of letters is negligible and user always enter record in order in which letter is received or sent we choose to auto generate serial number. We stored latest value of <code>XXXX</code> corresponding to every year and type of letter in cache. On creation of letter, value of <code>XXXX</code> of corresponding year and type incrmented and serial number of that letter is assigned  with the value of <code>XXXX</code> accordingly. Once letter is created type of outgoing letter is not editable.</p>
 
@@ -330,7 +330,7 @@
 <li>Pros
 
 <ol>
-<li>Teacher can't interfer in department work i.e. roles and permissions can't be assigned to them</li>
+<li>Teacher can't interfere in department work i.e. roles and permissions can't be assigned to them</li>
 </ol></li>
 <li>Cons
 
@@ -339,7 +339,7 @@
 <li>Chaining for supervisor profile access... $teacher->supervisorProfile->scholars (?)</li>
 </ol></li>
 </ul></li>
-<li><h3>What we implement</h3>
+<li><h3>What we implemented</h3>
 
 <p>Instead of creating different migration and guard for teachers,  a new category <code>Teacher</code> is introduced in <code>users</code> table. Teachers details can be added in <code>users</code> table by selecting <code>Teacher</code> category. Teachers will have same login as department faculty. Also boolean attribute <code>is_supervisor</code> added in <code>users</code> table which is set to false by default and its value is true if user is supervisor. Publications and scholars of supervisor will belongs to <code>users</code>.</p>
 
@@ -399,7 +399,7 @@
 <li>Complex in implementation. Many migrations with morphs relation are created.</li>
 </ol></li>
 </ul></li>
-<li><h3>What we implement</h3>
+<li><h3>What we implemented</h3>
 
 <p>Since all department faculty members and DU college teachers are stored in <code>users</code> table, one more boolean attribute in the table <code>is_cosupervisor</code> is added which is set to false by default and true if user is cosupervisor. One more category is added in <code>users</code> table name <code>External</code>. All details of externals are stored in <code>users</code> table. These externals can be cosupervisors or external member of advisory committee. New migration <code>advisor_scholar</code> for storing other members of  scholar advisory committee is created. <code>advisor_scholar</code> has many to one relation with <code>scholars</code> table and refer to <code>users</code> table for other member.</p>
 
@@ -419,100 +419,231 @@
 </ul></li>
 </ul>
 
-<h2>Trade-offs</h2>
+<h2>Research Committee of a Scholar</h2>
 
-<ol>
-<li>Supervisor, Cosupervisor and Advisory Committee of a Scholar</li>
-</ol>
-
-<p>A PhD scholar has a research committee consisting of 3-4 members
-1. A supervisor - a faculty at DUCS or CS teachers at the UG-colleges.
-2. A cosupervisor - a faculty, or a UG-teacher or an external(person not employed/ affiliated to DU at any post). A scholar may/may not have cosupervisor at a point. 
-3. An external - as stated above
-4. A faculty teacher</p>
-
-<p>The supervisor and cosupervisor can only be set by the office, while the other members of the research committee are set by the scholar's supervisor. 
-Moreover, any of these members can be replaced by the same authority as above. Once replaced, the constituent members need to be recorded with their tenure. An update took place in the current one, while replacement meant creating a record of the entry with the term duration.</p>
+<p>A PhD scholar has a <code>research committee</code> consisting of 3-4 members.</p>
 
 <blockquote>
-  <p>Note: A replacement of a cosupervisor/ supervisor also means creation of an entry in old_advisory_committtees.</p>
+  <ol>
+  <li>A supervisor - faculty at DUCS or CS teachers at the UG-colleges.</li>
+  <li>A cosupervisor - faculty, or a UG-teacher or an external(person not employed/ affiliated to DU at any post). A scholar may/may not have cosupervisor at a point.</li>
+  <li>An external - as stated above</li>
+  <li>A faculty teacher</li>
+  </ol>
 </blockquote>
 
+<p>The supervisor and cosupervisor can only be set by the office, while the other members (adviors) of the research committee are set by the scholar's supervisor. 
+Moreover, any of these members can be replaced by the same authority as above. Once replaced, the constituent members need to be recorded with their tenure. An update takes place without recording a members's tenure, while a replacement means changing the member and creating a record of the previous entry with their tenure.</p>
+
 <p>For eg:
-If the research committee of a scholar consisted of - Supervisor 'A', Cosupervisor 'B' and external 'C'</p>
+If the research committee of a scholar consists of - <code>Supervisor 'A', Cosupervisor 'B' and external 'C'</code></p>
 
-<p>Supervisor 'A': 2019 - present
-Co-supervisor 'B': 2019 - present
-Advisory Committee - (A, B , C): 2019-present</p>
+<blockquote>
+  <p>Supervisor 'A': 2019 - present
+  Co-supervisor 'B': 2019 - present
+  Advisors - (C): 2019-present</p>
+</blockquote>
 
-<p>when 'A' is replaced by 'E', it would require a record of two groups.</p>
+<p>when 'C' is replaced by 'E' &amp; 'F', it would require a record.</p>
 
-<p>Supervisor 'A': 2019 - 2020
-Advisory Committee - (A, B , C): 2019 - 2020</p>
+<blockquote>
+  <p>Advisors - (C): 2019 - 2020</p>
+</blockquote>
 
-<p>and the update will be like so:</p>
+<p>and the new advisors will be like so:</p>
 
-<p>Supervisor 'E': 2020 - present
-Co-supervisor 'B': 2019 - present
-Advisory Committee - (E, B , C): 2020 - present</p>
+<blockquote>
+  <p>Advisors - (E): 2020 - present</p>
+</blockquote>
 
-<p>At first, we made two json column in the scholars table to store the records of advisory committees, supervisors and cosupervisors. A supervisor was morph to either users or teachers. A cosupervisor was foreign to a cosupervisors table whose entries included duplicated data from users or teachers and any external member created.</p>
+<ul>
+<li>### Problem</li>
+</ul>
 
-<p>Problems with this approach were:
-1. We were constrained on what details we needed to record, because we were making a copy of them. We went with name, email designation and affiliation only.
-2. Creating copies of data meant no updates could be tracked in the future.
-3. Having json columns for keeping records of supervisor, cosupervisor and advisory committee made the scholars table bloated and the method didn't seem natural.
-4. Cosupervisors contained data copied from the current users and teachers. Also, an external could be a cosupervisor or an external could also be the member of an advisory committee. In both, they were being created as used. Sepearting them didn't seem like a good choice.
-5. The externals being created in the advisory committee of a scholar were not being stored somewhere such that they could be used anywhere else as well. The external was just being stored with its details in the current scholar only.
-6. When a supervisor was replaced, two copies of its record were being created. One to record previous supervisors, and one for previous advisory committee. (because the replacement of even a single member meant the advisory committee getting replaced)
-7. We needed to filter lists when we needed to send only cosupervisors, faculty teachers who were not cosupervisors and supervisors.</p>
+<p>Storing a scholar's supervisor, cosupervisor and advisors along with maintaining a record of all three.</p>
 
-<p>To solve some of the above problems we decided merge the teachers and users table in the users table and use a boolean value to indicate if they were a supervisor or cosupervisor,
-and create an externals tables as well to add any external members, marking the ones that are cosupervisors. We removed the cosupervisors table at this point.</p>
+<ul>
+<li><h3>Solutions</h3>
 
-<p>Since all the advisors existed in a tabl,, json columns could be replaced with tables to track these advisors of a scholar. Even the current supervisor and cosupervisor were added to these tables.</p>
-
-<p>Now, a scholar had advisors from users and externals. The only problem here was that externals were being maintained in a seperate table which meant that any expansion pf abilities in future for advisors would require us to add those abilities to both the types.</p>
-
-<p>We then decided to also create externals in the user table without giving them login access.</p>
-
-<p>This meant that on adding members to advisory committee the user would only search for the member to be added, and create an external on the fly if needed. We gave away with showing filtered lists for existing cosupervisors, or faculty teachers because these lists could get lengthy and searching for a user that you want to add seemed more natural.</p>
-
-<p>We also decided to create a table for advisors only, since supervisor and cosupervisors are contained within, and calculate there tenure from that information. This method might have become confusing for future and also requierd for us to maintain another field to find out which user was a scholar's cosupervisor out of all advisor (the advisory community could have a cosupervisor as a member of a scholar's advisors).</p>
-
-<p>Finally, we created  scholar_cosupervisors, scholar_supervisors and scholar_advisors pivot tables between scholars and users to keep track of all three along with their duration.</p>
-
-<p>These tables also contained the current ones hance removing this information from scholars table entirely.</p>
-
-<p>Replacement of an advisory committee as an effect of replacement of supervisor or cosupervisor would not be duplicated for information. Instead we use their individual duration to calculate when they would have been part of and which advisory committee.</p>
-
-<ol start="2">
-<li>Storing conferences and journals in the same table</li>
+<ol>
+<li>Creating json columns in the <code>scholars</code> table for records.</li>
 </ol>
 
-<p>Research scholars have two kinds of publications - journals and conferences.</p>
+<ul>
+<li>Pros</li>
+</ul>
 
-<p>Both these types had more common attributes than uncommon. Journals have a publisher and a number whereas a conference has a city and country. Except for these difference rest everything was same. Creating different tables to just come around two attributes did not seem like a good idea. Moreover, both of these belonged to the same type - publications. 
-Also, each publication can have a presentation. Creating two different tables would have required us to create a morph type in presentations to find the associated publications, which although achievable, was a bit against the idea that a publication had a presentation - whether it was a journal or conference di not make a difference.</p>
-
-<p>Therefore, along with a common table we also made common controllers and view for both kinds. Writing validation rules based on the type that the user wanted to create.</p>
-
-<ol start="3">
-<li>Making seperate tables for Phd-Seminar, Title Approval ans examiner even though there's a 1-1 relationship between them and a scholar.</li>
+<ol>
+<li>Need not create new migrations.</li>
+<li>Details of any member would always remain saved even after they were deleted from the app an an user/external.</li>
 </ol>
 
-<p>We first started by making a common table for Phd-Seminar and Title Approval. Both of them required a field for the requests's status. Phd Seminar also required a date on which it was scheduled.</p>
+<ul>
+<li>Cons</li>
+</ul>
 
-<p>The problem with this approach was:
-1. We had to share the type of request it was
-2. A scholar can make only a single request of each kind. We had to use first() on each request which was not clear enough about this very fact.
-3. date column was being left empty when it was a title approval request. 
-4. Both kinds have different requirements for application. The common policy file had to contain different methods of authorization for them.</p>
+<ol>
+<li>Storing these as json columns bulked up the scholars table.</li>
+<li><p>While deletion of an user is a rare occurence, them updating their details was an actual use-case. json columns could not have handled this relationship.</p></li>
+<li><p>Create a single pivot table named <code>research_committee</code></p></li>
+</ol>
 
-<p>Similarly for examiners, the table contained entirely different data. A status and two date columns for approval and recommendation. Also, this was being added by a supervisor. This also meant keeping functions based on  authorization on different kind of users in the same file.</p>
+<ul>
+<li>Pros</li>
+</ul>
 
-<p>Keeping the three of them in a single table meant leaving columns blank here and there depending on the type of the request. 
-Keeping a common table would have been benficial if there were less differences and the table could be made generic for future requests. Here it did not seem like so. Hence, we created seperate table for all of the.</p>
+<ol>
+<li>Each entry from this table correspondeds to an user. Hence, any update in their details was reflected here.</li>
+<li>Seperation of advisors from scholars was more clearer.</li>
+<li>Their tenure could be recorded using two pivot columns, start and end date.</li>
+</ol>
+
+<ul>
+<li>Cons</li>
+</ul>
+
+<ol>
+<li><p>This approach required for us to create a distinction between a scholar's supervisor, coaupervisor and advisors. For eg, the user being a cosupervisor(is_cosupervisor = true) could not be used as a dictinction since scholar B's cosupervisor could be an advisor for scholar B.</p></li>
+<li><p>Create 3 seperate pivot tables for scholar supervisors, cosupervisors and advisors</p></li>
+</ol>
+
+<ul>
+<li>Pros</li>
+</ul>
+
+<ol>
+<li>All 3 from solution 2</li>
+<li>The three different tables handled distinction naturally.</li>
+</ol>
+
+<ul>
+<li>Cons</li>
+</ul>
+
+<ol>
+<li>More migrations</li>
+</ol></li>
+<li><h3>What we implemented</h3>
+
+<p>We went ahead with approach 3 so that any handling of these authorities could be handled easily in future as well. This also offered a clearer design.</p></li>
+</ul>
+
+<h2>Publications</h2>
+
+<ul>
+<li>### Problem</li>
+</ul>
+
+<p>Research scholars and supervisors have two kinds of publications - journals and conferences.</p>
+
+<p>Both these types of publications have more common attributes than uncommon. Journals have a publisher and a number whereas a conference has a city and country. Except for these differences rest all details are the same. Moreover, any publication can have many presentations.</p>
+
+<ul>
+<li><h3>Solutions</h3>
+
+<ol>
+<li>Create different tables for journals and conferences</li>
+</ol>
+
+<ul>
+<li>Pros</li>
+</ul>
+
+<ol>
+<li>Clearer distinction between the two types.</li>
+</ol>
+
+<ul>
+<li>Cons</li>
+</ul>
+
+<ol>
+<li>This would have required us to create a morph type in presentations to find the associated publication, which although achievable, was a bit against the idea that a publication had a presentation - whether it was a journal or conference did not make a difference.</li>
+<li><p>Scholar or users would have to have two different relationships for finding their associated journals and conferences.</p></li>
+<li><p>Creating a same table for both</p></li>
+</ol>
+
+<ul>
+<li>Pros</li>
+</ul>
+
+<ol>
+<li>Removing duplication of a table structure.</li>
+<li>presentations were associated using a hasMany relationship.</li>
+<li>Scholar and users have a hasMany relationship for publications, scope on which could be built to find journals and conferences.</li>
+</ol>
+
+<ul>
+<li>Cons</li>
+</ul>
+
+<ol>
+<li>A pair of columns is null in each type (as mentioned in the description)</li>
+</ol></li>
+<li><h3>What we implemnted</h3>
+
+<p>We went ahead with the second approach to not create duplications and distinction between the two types based on two trivial attributes. This also made creating relationships easier. Finally, relationships and scopes related to publications was extracted to a trait - <code>HasPublications</code>.</p>
+
+<p>Since scholars and supervisor profiles extend two different types of layouts, their controllers were created separately, though making use of view partials wherever achievable. (think forms and index details)</p></li>
+</ul>
+
+<h2>Scholar Requests</h2>
+
+<ul>
+<li>### Problem</li>
+</ul>
+
+<p>A scholar at the end of their tenure requests for a <code>Phd-Seminar</code> and <code>Thesis Title Approval</code> (mentioned Title Approval in the app). Their supervisor request for an <code>examiner</code> for them. All of these requests are one-time only.
+We needed to maintain these requets` date and status.</p>
+
+<ul>
+<li><h3>Solutions</h3>
+
+<ol>
+<li>A common table for all three requests.</li>
+</ol>
+
+<ul>
+<li>Pros</li>
+</ul>
+
+<ol>
+<li>Lesser number of migrations</li>
+<li>All scholar request types were contained in one table</li>
+</ol>
+
+<ul>
+<li>Cons</li>
+</ul>
+
+<ol>
+<li>Had to save the <code>type</code> of request with every record.</li>
+<li>All the three types had a few (1-2) different types of attributes. These had to be left nullable.</li>
+<li>While the requests are singular now, they could become multiple in future. All the three kinds have different requirements for authorizations, more differentiated if they become multiple requests. The common policy file had to contain different methods of authorization for them.</li>
+<li>3 different tables for all three types of requests.</li>
+</ol>
+
+<ul>
+<li>Pros</li>
+</ul>
+
+<ol>
+<li>Clearer distinction between requests.</li>
+<li>Authorisation policies contained respective logic only.</li>
+</ol>
+
+<ul>
+<li>Cons</li>
+</ul>
+
+<ol>
+<li>More migrations</li>
+</ol></li>
+<li><h3>What we implemented</h3>
+
+<p>We went ahead with the second approach for clarity between requests and their authorisation logic.
+Keeping a common table would have been benficial if there were less differences and the table could be made generic for future requests. Here it did not seem like so. Hence, we created seperate table for all three.</p></li>
+</ul>
         </div>
     </div>
 </section>

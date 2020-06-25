@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Getting started with Jigsaw&#039;s docs starter template is as easy as 1, 2, 3.">
+        <meta name="description" content="Getting started with DUCS Office Automation">
 
         <meta property="og:site_name" content="DUCS Office Portal Docs"/>
         <meta property="og:title" content="Getting Started | DUCS Office Portal Docs"/>
-        <meta property="og:description" content="Getting started with Jigsaw&#039;s docs starter template is as easy as 1, 2, 3."/>
+        <meta property="og:description" content="Getting started with DUCS Office Automation"/>
         <meta property="og:url" content="https://gautamswati.github.io/ducs-office-automation-docs/docs/getting-started"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
@@ -221,9 +221,161 @@
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1 id="getting-started">Getting Started</h1>
 
+<h1>DUCS Office Automation</h1>
+
+<p>This project aims at automating the office work at the Department of Computer Science, University of Delhi (aka DUCS). You can also read the <a href="./problem-statement.md">problem description</a> for more details.</p>
+
+<h3>Requirements</h3>
+
+<p>This project is built with Laravel &amp; Alpine.js. The Laravel framework has a few system requirements. All of these requirements are satisfied by the <a href="https://laravel.com/docs/6.x/homestead">Laravel Homestead</a> virtual machine.</p>
+
+<p>However, if you are not using Homestead, you will need to make sure your local development server meets the following requirements. You can also find these listed in <a href="https://laravel.com/docs/6.x#server-requirements">laravel docs</a>.</p>
+
+<ul>
+<li>PHP >= 7.3.0</li>
+<li>BCMath PHP Extension</li>
+<li>JSON PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>OpenSSL PHP Extension</li>
+<li>PDO PHP Extension</li>
+<li>Tokenizer PHP Extension</li>
+<li>XML PHP Extension</li>
+</ul>
+
+<p>Additionally, you would require to install <a href="https://getcomposer.org/">composer</a> &amp; <a href="https://nodejs.org/en/">nodejs</a> to pull in all the project dependencies.</p>
+
+<h3>Installation</h3>
+
+<h5>Using <code>apt</code> package manager (Debian/Ubuntu)</h5>
+
+<p>Before you begin installing make sure you run <code>sudo apt update</code> to get the latest version available.</p>
+
+<pre><code class="language-bash"><br /># if you do not have mysql installed on your system
+sudo apt install mysql-server
+
+# php &amp; required extensions
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.4 php7.4-mysql php7.4-xml php7.4-mbstring php7.4-bcmath php7.4-sqlite php7.4-json
+
+# composer &amp; nodejs
+sudo apt install nodejs composer
+</code></pre>
+
+<h3>Quick Start</h3>
+
+<ul>
+<li>Clone the project using <code>git</code>:</li>
+</ul>
+
+<pre><code class="language-bash">git clone https://github.com/gautamswati/ducs-office-automation
+</code></pre>
+
+<ul>
+<li>Install project dependencies</li>
+</ul>
+
+<p>Go to your project directory and install php dependencies using <code>composer</code>:</p>
+
+<pre><code class="language-bash">composer install
+</code></pre>
+
+<p>Use <code>npm</code> to install all the required JavaScript dependencies.</p>
+
+<pre><code class="language-bash">npm install
+</code></pre>
+
+<p>To compile down the frontend assets like stylesheets (CSS) &amp; javascript files use,</p>
+
+<pre><code>npm run dev
+</code></pre>
+
+<p>Or you can also run a watcher to automatically compile the assets, whenever the files are changed.</p>
+
+<pre><code>npm run watch
+</code></pre>
+
+<ul>
+<li>Start Local Development Server</li>
+</ul>
+
+<p>This will serve the project at <code>localhost:8000</code>, you can now open this up in your browser using,</p>
+
+<pre><code class="language-bash">php artisan serve
+</code></pre>
+
+<h3>Local Development</h3>
+
+<p>To begin developing and testing the project locally, you'd require to follow a few more steps.</p>
+
+<ul>
+<li>Configure the application</li>
+</ul>
+
+<p>Create a duplicate file of <code>.env.example</code> as <code>.env</code>.</p>
+
+<pre><code class="language-bash">cp .env.example .env
+</code></pre>
+
+<ul>
+<li>Generate an application key using:</li>
+</ul>
+
+<pre><code class="language-bash">php artisan key:generate
+</code></pre>
+
 <blockquote>
-  <p>Todo: Add content here</p>
+  <p>The command will add an application key to your <code>.env</code> file.</p>
 </blockquote>
+
+<ul>
+<li>Create new <code>mysql</code> user and database</li>
+</ul>
+
+<p>Since the application uses MySql DBMS, you'd require a database and valid credentials.</p>
+
+<pre><code class="language-bash">mysql -u root -h localhost -p
+</code></pre>
+
+<pre><code class="language-bash">mysql&gt; CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+mysql&gt; GRANT ALL PRIVILEGES ON office_automation.* TO 'username'@'localhost' WITH GRANT OPTION;
+mysql&gt; ALTER USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password by 'password';
+mysql&gt; \q
+mysql -u username -h localhost -p
+mysql&gt; CREATE DATABASE office_automation;
+</code></pre>
+
+<ul>
+<li>Setup <code>Database</code> connection in <code>.env</code> file:</li>
+</ul>
+
+<p>Change the following configuration values:</p>
+
+<pre><code class="language-bash">...
+DB_DATABASE=office_automation
+DB_USERNAME=username
+DB_PASSWORD=password
+...
+</code></pre>
+
+<ul>
+<li>Add some default data for testing the app</li>
+</ul>
+
+<p>To begin browsing &amp; testing the portal you'd need the application seeded with some dummy data.</p>
+
+<p>To create all the tables &amp; seed your database with dummy data, run:</p>
+
+<pre><code>php artisan migrate --seed
+</code></pre>
+
+<ul>
+<li>Default login credentials</li>
+</ul>
+
+<pre><code>Email: admin@cs.du.ac.in
+Password: password
+</code></pre>
         </div>
     </div>
 </section>
