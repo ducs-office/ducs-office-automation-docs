@@ -10,5 +10,7 @@ return [
     'Trade Offs' => 'docs/trade-offs',
     'Maintenance' => 'docs/maintenance',
     'Target Audience' => 'docs/target-audience',
+    'Future Scope' => 'docs/future-scope',
+    'References' => 'docs/references',
     'Jigsaw Docs' => 'https://jigsaw.tighten.co/docs/installation',
 ];
