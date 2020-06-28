@@ -11,7 +11,7 @@ th {
 
 td {
     @apply border-b;
-    @apply px-4 py-1;
+    @apply px-4 py-1 text-gray-700 text-base;
 }
 th:first-of-type, td:first-of-type {
     @apply pl-6 pr-4;
@@ -22,4 +22,8 @@ th:last-of-type, td:last-of-type {
 
 tr:last-of-type > td {
     @apply border-b-0;
+}
+
+li {
+    @apply text-xs;
 }
