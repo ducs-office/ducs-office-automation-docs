@@ -5,7 +5,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-# References
+## References
 
 1. [https://laravel.com/docs/7.x](https://laravel.com/docs/7.x)
 1. [https://laracasts.com/](https://laracasts.com/)

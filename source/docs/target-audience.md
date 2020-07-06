@@ -1,6 +1,6 @@
 ---
 title: Target Audience
-description: Audience for which this App for.
+description: Audience for which this app has been made for
 extends: _layouts.documentation
 section: content
 ---

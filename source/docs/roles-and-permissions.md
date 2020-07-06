@@ -4,7 +4,7 @@ description: Roles & Permissions used in the application.
 extends: _layouts.documentation
 section: content
 ---
-# Permissions 
+## Roles & Permissions 
 
 
 Since the application serves purpose for the DUCS office, there are tasks that overlap interaction and supervision from multiple people. As such, there's no clear divide of responsibility for all resources. 
