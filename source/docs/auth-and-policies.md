@@ -1,10 +1,11 @@
 ---
 title: Authorization Policies
-description: Authorization Policies responsible for authorizing user actions based on permissions and several rules.
+description: Authentication & Authorization logic within the application
 extends: _layouts.documentation
 section: content
 ---
 
+## Authentication & Authorization
 
 ### Authentication
 

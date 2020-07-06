@@ -23,7 +23,3 @@ th:last-of-type, td:last-of-type {
 tr:last-of-type > td {
     @apply border-b-0;
 }
-
-li {
-    @apply text-xs;
-}

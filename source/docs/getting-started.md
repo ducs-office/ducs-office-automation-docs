@@ -6,14 +6,12 @@ section: content
 ---
 
 
-# Getting Started {#getting-started}
-
-# DUCS Office Automation
+## Getting Started {#getting-started}
 
 This project aims at automating the office work at the Department of Computer Science, University of Delhi (aka DUCS). You can also read the [problem description](./problem-statement.md) for more details.
 
 
-### Requirements
+#### **Requirements**
 
  
 This project is built with Laravel & Alpine.js. The Laravel framework has a few system requirements. All of these requirements are satisfied by the [Laravel Homestead](https://laravel.com/docs/6.x/homestead) virtual machine.
@@ -31,9 +29,9 @@ However, if you are not using Homestead, you will need to make sure your local d
 
 Additionally, you would require to install [composer](https://getcomposer.org/) & [nodejs](https://nodejs.org/en/) to pull in all the project dependencies.
 
-### Installation
+#### **Installation**
 
-##### Using `apt` package manager (Debian/Ubuntu)
+###### Using `apt` package manager (Debian/Ubuntu)
 Before you begin installing make sure you run `sudo apt update` to get the latest version available.
 
 ```bash
@@ -50,7 +48,7 @@ sudo apt-get install php7.4 php7.4-mysql php7.4-xml php7.4-mbstring php7.4-bcmat
 sudo apt install nodejs composer
 ```
 
-### Quick Start
+#### **Quick Start**
 
 * Clone the project using `git`:
 
@@ -83,17 +81,6 @@ Or you can also run a watcher to automatically compile the assets, whenever the 
 ```
 npm run watch
 ```
-* Start Local Development Server
-
-This will serve the project at `localhost:8000`, you can now open this up in your browser using,
-
-```bash
-php artisan serve
-```
-
-### Local Development
-
-To begin developing and testing the project locally, you'd require to follow a few more steps.
 
 * Configure the application
 
@@ -147,7 +134,17 @@ To create all the tables & seed your database with dummy data, run:
 php artisan migrate --seed
 ```
 
+* Start Local Development Server
+
+This will serve the project at `localhost:8000`, you can now open this up in your browser using,
+
+```bash
+php artisan serve
+```
+
 * Default login credentials
+
+Use the following credentials to login as admin
 
 ```
 Email: admin@cs.du.ac.in

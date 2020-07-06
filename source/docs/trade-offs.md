@@ -27,16 +27,16 @@ section: content
 
 * ### Solutions
     This problem has many solutions some of which are listed below.
-    1. Accept the serial number from user. At the backend we can validate the format and uniqueness of the serial number.
+    * Accept the serial number from user. At the backend we can validate the format and uniqueness of the serial number.
         * Pros
-          1.  Easy to implement.
+          * Easy to implement.
         * Cons
-          1.   Though we can check the uniqueness of serial number but implemting the logic for validating that value of `XXXX` is actually correct is quite complex. Either we can internally count the total number of letters sent before in that year every time user create, edit or delete a letter and check serial number of all letters sent in that year and accordingly ask user to update serial number of all other letters or we can assume that user always enter correct serial number.
+          * Though we can check the uniqueness of serial number but implemting the logic for validating that value of `XXXX` is actually correct is quite complex. Either we can internally count the total number of letters sent before in that year every time user create, edit or delete a letter and check serial number of all letters sent in that year and accordingly ask user to update serial number of all other letters or we can assume that user always enter correct serial number.
 
-    2. Auto generate serial number whenever a new letter is created or type or date of letter is updated.
+    * Auto generate serial number whenever a new letter is created or type or date of letter is updated.
         * Pros
-            1. User will not add serial number(user friendly).
-            2. Serial number of all letters are always correct. 
+          *. User will not add serial number(user friendly).
+          *. Serial number of all letters are always correct. 
         * Cons
             1. Complex to implement. We will need to store latest value of `XXXX` corresponding to every year and type of letter.
             2. Whenever user delete or edit type or date of letter serial number of other letters and latest value of `XXXX` needs to be updated accordingly.

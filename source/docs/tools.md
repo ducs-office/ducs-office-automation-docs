@@ -5,11 +5,11 @@ extends: _layouts.documentation
 section: content
 ---
 
-# Tools Used
+## Tools Used
 
 We used following web development tools to improve our workflow.
 
-## Source Code Editor
+### Source Code Editor
 
 We used [Visual Studio Code](https://code.visualstudio.com/) with the following extensions
 
@@ -28,7 +28,7 @@ We used [Visual Studio Code](https://code.visualstudio.com/) with the following 
 * [PHPUnit](https://marketplace.visualstudio.com/items?itemName=emallin.phpunit)
 
 
-## Collaboration
+### Collaboration
 
 For collaboration we used the following tools
 
@@ -40,19 +40,19 @@ For collaboration we used the following tools
 | [Discord](https://discord.com/) | Screen casting and text, audio and video communication |
 
 
-## Database Managment
+### Database Managment
 
-We used [Adminer](https://www.adminer.org/) and [phpMyAdmin](https://www.phpmyadmin.net/) for visualizing database (?).
+We used [Adminer](https://www.adminer.org/) and [phpMyAdmin](https://www.phpmyadmin.net/) to manage content for MySql database when needed to be exported for deployment. These were also useful in visualising tables and relationships between them. 
 
 
-## Testing
+### Continuous Integration
 
-We used [Travis CI](https://github.com/marketplace/travis-ci) service to build and test our [project](https://github.com/gautamswati/ducs-office-automation) hosted on github.
+We used [Travis CI](https://github.com/marketplace/travis-ci) and [Github Actions](https://github.com/features/actions)to build, and test our [project](https://github.com/gautamswati/ducs-office-automation) hosted on github.
 
 
 ## Documentation
 
-We used [Jigsaw](https://jigsaw.tighten.co/) for documenting our [project](https://github.com/gautamswati/ducs-office-automation). 
+We used [Jigsaw](https://jigsaw.tighten.co/) for documenting the [project](https://github.com/gautamswati/ducs-office-automation). 
 
 
 

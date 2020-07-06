@@ -5,7 +5,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-# Future Scope And Further Enhancements
+## Future Scope And Further Enhancements
 
 Ducs Office Automation application is flexible enough to meet requirements of teachers, office staff and scholars. This project has scope of enhancements like:
 

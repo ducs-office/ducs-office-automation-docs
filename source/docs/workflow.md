@@ -5,7 +5,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-### Workflow
+## Workflow
 
 
 The project was floated as 'DUCS Office Automation'. Our very first task was to collect requirements from all the staff of the department. It can be found here - [Should we include this part](http://something/). We chose to begin with the office's requirements since their work is majorly managed on paper and seemed a great start to help them shift to a paperless environment as much as we could. 
