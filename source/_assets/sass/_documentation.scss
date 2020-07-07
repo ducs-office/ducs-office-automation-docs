@@ -23,3 +23,15 @@ th:last-of-type, td:last-of-type {
 tr:last-of-type > td {
     @apply border-b-0;
 }
+
+.DocSearch-content {
+    ul {
+        @apply list-disc pl-6;
+    }
+    ol {
+        @apply pl-6;
+    }
+    li { 
+        @apply pl-2;
+    }
+}
