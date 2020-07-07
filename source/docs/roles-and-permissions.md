@@ -37,15 +37,15 @@ application are:
 <a name="list-of-permissions">
 <table>
   <tbody>
-    <tr class="bg-gray-300 text-center h-16">
+    <tr class="bg-gray-300 text-left h-16">
       <td>Roles</td>
       <td>Users</td>
       <td>Incoming Letters</td>
       <td>Outgoing Letters</td>
     </tr>
-    <tr class="text-center">
+    <tr class="text-left">
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -53,7 +53,7 @@ application are:
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -61,7 +61,7 @@ application are:
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -69,7 +69,7 @@ application are:
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -77,15 +77,15 @@ application are:
         </ul>
       </td>
     </tr>
-    <tr class="bg-gray-300 text-center h-16">
+    <tr class="bg-gray-300 text-left h-16">
       <td>Letter Reminders</td>
       <td>Remarks</td>
       <td>Colleges</td>
       <td>Programmes</td>
     </tr>
-    <tr class="text-center">
+    <tr class="text-left">
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -93,7 +93,7 @@ application are:
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -101,7 +101,7 @@ application are:
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -109,7 +109,7 @@ application are:
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Create </li>
             <li> Edit </li>
@@ -117,15 +117,15 @@ application are:
         </ul>
       </td>
     </tr>
-    <tr class="bg-gray-300 text-center h-16">
+    <tr class="bg-gray-300 text-left h-16">
       <td>Courses</td>
       <td>Leaves</td>
       <td>Phd Course Work</td>
       <td>Scholar Progress Reports</td>
     </tr>
-    <tr class="text-center">
+    <tr class="text-left">
       <td>
-          <ul>
+          <ul class="p-2">
               <li> View </li>
               <li> Create </li>
               <li> Edit </li>
@@ -133,70 +133,70 @@ application are:
           </ul>
         </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Respond </li>
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Mark Completed </li>
             <li> View Marksheet </li>
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Add </li>
             <li> View </li>
             <li> Delete </li>
         </ul>
       </td>
     </tr>
-    <tr class="bg-gray-300 text-center h-16">
+    <tr class="bg-gray-300 text-left h-16">
       <td>Scholar Documents</td>
       <td>Phd Seminar</td>
       <td>Title Approval</td>
       <td>Scholar Examiner</td>
     </tr>
-    <tr class="text-center">
+    <tr class="text-left">
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Add </li>
             <li> View </li>
             <li> Delete </li>
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Add Schedule </li>
             <li> Finalize </li>
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Approve </li>
         </ul>
       </td>
       <td>
-        <ul>
+        <ul class="p-2">
             <li> Recommend </li>
             <li> Approve </li>
         </ul>
       </td>
     </tr>
-    <tr class="bg-gray-300 text-center h-16">
+    <tr class="bg-gray-300 text-left h-16">
         <td>Teaching Records</td>
         <td>Scholar Mentors</td>
     </tr>
-    <tr class="text-center">
+    <tr class="text-left">
       <td>
-        <ul>
+        <ul class="p-2">
             <li> View </li>
             <li> Start </li>
             <li> Extend </li>
         </ul>
       </td>
         <td>
-            <ul>
+            <ul class="p-2">
                 <li> Replace </li>
             </ul>
         </td>

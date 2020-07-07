@@ -6,7 +6,7 @@ return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'DUCS Office Portal Docs',
-    'siteDescription' => 'Beautiful docs powered by Jigsaw',
+    'siteDescription' => 'Documentation for the office portal of the Department of Computer Science, University of Delhi',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => '',
