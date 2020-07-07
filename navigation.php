@@ -9,6 +9,7 @@ return [
     'Tools Used' => 'docs/tools',
     'Trade Offs' => 'docs/trade-offs',
     'Maintenance' => 'docs/maintenance',
+    'Deployment' => 'docs/deployment',
     'Target Audience' => 'docs/target-audience',
     'Future Scope' => 'docs/future-scope',
     'References' => 'docs/references',
