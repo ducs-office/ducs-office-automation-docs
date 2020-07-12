@@ -26,7 +26,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="https://gautamswati.github.io/ducs-office-automation-docs/assets/build/css/main.css?id=a1cb585ca9c0d3983fb5">
+        <link rel="stylesheet" href="https://gautamswati.github.io/ducs-office-automation-docs/assets/build/css/main.css?id=465ae87fc67b1f818a01">
 
             </head>
 
@@ -34,8 +34,8 @@
         <header class="flex items-center shadow bg-white border-b mb-8 py-4" role="banner">
             <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
-                    <a href="/" title="DUCS Office Portal Docs home" class="inline-flex items-center">
-                        <img class="h-8 md:h-10 mr-3" src="https://gautamswati.github.io/ducs-office-automation-docs/assets/img/logo.svg" alt="DUCS Office Portal Docs logo" />
+                    <a href="https://gautamswati.github.io/ducs-office-automation-docs" title="DUCS Office Portal Docs home" class="inline-flex items-center">
+                        <img class="h-8 md:h-10 mr-3" src="https://gautamswati.github.io/ducs-office-automation-docs/assets/img/university-logo.png" alt="DUCS Office Portal Docs logo" />
 
                         <h1 class="text-lg md:text-2xl text-blue-900 font-semibold hover:text-blue-600 my-0 pr-4">DUCS Office Portal Docs</h1>
                     </a>
@@ -79,24 +79,6 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/permissions"
-            class="lvl0   nav-menu__item hover:text-blue-500"
-        >
-            Permissions
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/policies"
-            class="lvl0   nav-menu__item hover:text-blue-500"
-        >
-            Authorization Policies
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
         <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/problem-statement"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
@@ -106,19 +88,37 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/tools"
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/workflow"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
-            Tools Used
+            Workflow
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/workflow"
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/roles-and-permissions"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
-            Workflow
+            Roles &amp; Permissions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/auth-and-policies"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            Authentication &amp; Authorization
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/tools"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            Tools Used
         </a>
     
     </li>
@@ -142,6 +142,15 @@
     </li>
             <li class="pl-4">
             
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/deployment"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            Deployment
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
         <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/target-audience"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
@@ -151,10 +160,19 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://jigsaw.tighten.co/docs/installation"
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/future-scope"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
-            Jigsaw Docs
+            Future Scope
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/references"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            References
         </a>
     
     </li>
@@ -162,12 +180,14 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1>Tradeoffs</h1>
+            <h2>Tradeoffs</h2>
 
-<h2>Letter</h2>
+<p>We discuss here some of the problems we encountered during the development, the solutions for them and the trade-offs in implementing them.</p>
+
+<h3>Letter</h3>
 
 <ul>
-<li><h3>Problem</h3>
+<li><h4><strong>Problem</strong></h4>
 
 <p>Each Outgoing letter has a unique serial number which depends on its type. Type of the letter can be <code>Bill</code>, <code>General</code> or <code>Notesheet</code>. Serial number of an outgoing letter has following format :-</p>
 
@@ -203,166 +223,157 @@
 </blockquote>
 
 <p>where 'YYYY' is the year in which the incoming letter was received and XXXX are the total number of incoming letters received before that letter in that year plus one.</p></li>
-<li><h3>Solutions</h3>
+<li><h4><strong>Solutions</strong></h4>
 
 <p>This problem has many solutions some of which are listed below.</p>
 
 <ol>
 <li><p>Accept the serial number from user. At the backend we can validate the format and uniqueness of the serial number.</p>
 
-<ul>
-<li>Pros
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Easy to implement.</li>
-</ol></li>
-<li>Cons
+</ol>
+
+<h5><strong>Cons</strong></h5>
 
 <ol>
-<li>Though we can check the uniqueness of serial number but implemting the logic for validating that value of <code>XXXX</code> is actually correct is quite complex. Either we can internally count the total number of letters sent before in that year every time user create, edit or delete a letter and check serial number of all letters sent in that year and accordingly ask user to update serial number of all other letters or we can assume that user always enter correct serial number.</li>
+<li>Though we can check the uniqueness of serial number but implementing the logic for validating that value of <code>XXXX</code> is actually correct is quite complex. Either we can internally count the total number of letters sent before in that year every time user create, edit or delete a letter and check serial number of all letters sent in that year and accordingly ask user to update serial number of all other letters or we can assume that user always enter correct serial number.</li>
 </ol></li>
-</ul></li>
 <li><p>Auto generate serial number whenever a new letter is created or type or date of letter is updated.</p>
 
-<ul>
-<li>Pros
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>User will not add serial number(user friendly).</li>
 <li>Serial number of all letters are always correct.</li>
-</ol></li>
-<li>Cons
+</ol>
+
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Complex to implement. We will need to store latest value of <code>XXXX</code> corresponding to every year and type of letter.</li>
-<li>Whenever user delete or edit type or date of letter serial number of other letters and latest value of <code>XXXX</code> needs to be updated accordingly.</li>
+<li>Whenever user delete or edit type or date of letter serial number of other letters and latest value of <code>XXXX</code> needs to be updated accordingly.
+<br> </br></li>
 </ol></li>
-</ul></li>
 </ol></li>
-<li><h3>What we implemented</h3>
+<li><h4><strong>What we implemented</strong></h4>
 
-<p>Assuming frequency of deletion of letters is negligible and user always enter record in order in which letter is received or sent we choose to auto generate serial number. We stored latest value of <code>XXXX</code> corresponding to every year and type of letter in cache. On creation of letter, value of <code>XXXX</code> of corresponding year and type incrmented and serial number of that letter is assigned  with the value of <code>XXXX</code> accordingly. Once letter is created type of outgoing letter is not editable.</p>
+<p>Assuming frequency of deletion of letters is negligible and user always enter record in order in which letter is received or sent we choose to auto generate serial number. We stored latest value of <code>XXXX</code> corresponding to every year and type of letter in cache. On creation of letter, value of <code>XXXX</code> of corresponding year and type incremented and serial number of that letter is assigned  with the value of <code>XXXX</code> accordingly. Once letter is created type of outgoing letter is not editable.</p>
 
-<ul>
-<li>Pros
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>User friendly.</li>
 <li>Easy to implement.</li>
-</ol></li>
-<li>Cons
+</ol>
+
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Whenever year of date of letter is edited or letter is deleted their corresponding serial number can't be reassigned to another letter.</li>
 <li>value of <code>XXXX</code> depends on order in which letter record is entered.</li>
 </ol></li>
-</ul></li>
 </ul>
 
-<h2>Teacher</h2>
+<h3>Teacher</h3>
 
 <ul>
-<li><h3>Problem</h3>
+<li><h4><strong>Problem</strong></h4>
 
 <p>Office staff collect teaching details of all DU college teachers teaching CS every 6 months. Teachers fill their teaching details after receiving notification and submit them before deadline. Also some teachers and Department faculties are assigned as supervisors. Supervisors has their publications and can view their scholar's profile.</p></li>
-<li><h3>Solution</h3>
+<li><h4><strong>Solution</strong></h4>
 
 <p>One of the possible solution is to create different guard ans migration for teachers login similar to users login. Teachers can be given  their credentials so they can login in the portal and notified for filling teaching details. They can fill and submit their teaching details via portal. Also <code>supervisor_profile</code> migration can be created to store supervisor information. Each entry in <code>supervisor_profile</code> belong to either department faculty i.e. <code>users</code> table or <code>teachers</code> table. Publications and Scholars of supervisor belongs to <code>supervisor_profile</code>.</p>
 
-<ul>
-<li>Pros
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Teacher can't interfere in department work i.e. roles and permissions can't be assigned to them</li>
-</ol></li>
-<li>Cons
+</ol>
+
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Number of migrations increases.</li>
-<li>Chaining for supervisor profile access... $teacher->supervisorProfile->scholars (?)</li>
+<li>Chaining for supervisor profile access. For eg, to access the scholars of a supervisor who is also a teacher would have meant:<code>$teacher-&gt;supervisorProfile-&gt;scholars</code>. 
+<br> </br></li>
 </ol></li>
-</ul></li>
-<li><h3>What we implemented</h3>
+<li><h4><strong>What we implemented</strong></h4>
 
 <p>Instead of creating different migration and guard for teachers,  a new category <code>Teacher</code> is introduced in <code>users</code> table. Teachers details can be added in <code>users</code> table by selecting <code>Teacher</code> category. Teachers will have same login as department faculty. Also boolean attribute <code>is_supervisor</code> added in <code>users</code> table which is set to false by default and its value is true if user is supervisor. Publications and scholars of supervisor will belongs to <code>users</code>.</p>
 
-<ul>
-<li>Pros
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Simple and easy to implement.</li>
 <li>No new migrations are created.</li>
-<li>No chaining for supervisor profile access (?)</li>
-</ol></li>
-<li>Cons
+<li>No chaining for supervisor profile access.</li>
+</ol>
+
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li><code>users</code> migration size increases.</li>
 <li>Accidently, roles and permissions which are designed for department members can be assigned to teachers.</li>
 </ol></li>
-</ul></li>
 </ul>
 
-<h2>Scholar Advisors</h2>
+<h3>Scholar Advisors</h3>
 
 <ul>
-<li><h3>Problem</h3>
+<li><h4><strong>Problem</strong></h4>
 
 <p>Department may assign cosupervisor to scholar. Cosupervisor can be department faculty, DU college teacher or external. Advisory committee is assigned to Scholar which consist of scholar's supervisor, cosupervisor (if any) and other members. Other members of advisory committe of the scholar can be cosupervisors, externals and department faculties which are not supervisors. Problem is how to store department cosupervisors and other members of scholar's advisory committee.</p></li>
-<li><h3>Solutions</h3>
+<li><h4><strong>Solutions</strong></h4>
 
 <p>Some of the possible solutions are listed below</p>
 
 <ol>
-<li>Make separate migration for cosupervisors in which each entry either refers to <code>users</code> table if cosupervisor is department faculty or DU college teacher, or store cosupervisors details if cosupervisor is external. Then foreign key for scholar's cosupervisor can be created in <code>scholars</code> table which refers to the cosuprvisor table. To store other members of advisory committee of scholar other migration <code>advisor_scholar</code> can be created. Relation between <code>scholars</code> and <code>advisor_scholar</code> would be one to many. Each entry in <code>advisor_scholar</code> either would be referring to <code>users</code> table (if member is department faculty), cosupervisors table (if member is cosupervisor) or storing member's detail (if member is external).</li>
-</ol>
+<li><p>Make separate migration for cosupervisors in which each entry either refers to <code>users</code> table if cosupervisor is department faculty or DU college teacher, or store cosupervisors details if cosupervisor is external. Then foreign key for scholar's cosupervisor can be created in <code>scholars</code> table which refers to the cosupervisor table. To store other members of advisory committee of scholar other migration <code>advisor_scholar</code> can be created. Relation between <code>scholars</code> and <code>advisor_scholar</code> would be one to many. Each entry in <code>advisor_scholar</code> either would be referring to <code>users</code> table (if member is department faculty), cosupervisors table (if member is cosupervisor) or storing member's detail (if member is external).</p>
 
-<ul>
-<li>Cons
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Complex in implementation. Many migrations with morphs relation are created.</li>
 <li>Details of external members of scholar advisory committee is duplicated if they are advisors of more than one scholar.</li>
 </ol></li>
-</ul>
+<li><p>Details of other members of advisory committee who are externals can be stored in separate migration <code>externals</code>. Similar to above solution make separate migration for cosupervisors and other members of advisory committee of scholar. Only difference is now each entry in <code>advisor_scholar</code>  would be referring to <code>users</code> table (if member is department faculty), cosupervisors table (if member is cosupervisor) or <code>externals</code> (if member is external).</p>
 
-<ol start="2">
-<li>Details of other members of advisory committee who are externals can be stored in separate migration <code>externals</code>. Similar to above solution make separate migration for cosupervisors and other members of advisory committee of scholar. Only difference is now each entry in <code>advisor_scholar</code>  would be referring to <code>users</code> table (if member is department faculty), cosupervisors table (if member is cosupervisor) or <code>externals</code> (if member is external).</li>
+<h5><strong>Pros</strong></h5>
+
+<ol>
+<li>For each external member of advisory committee unique entry is created. There is no duplication of details of external members of scholar advisory committee if they are advisors of more than one scholar.</li>
 </ol>
 
-<ul>
-<li>Pros
+<h5><strong>Cons</strong></h5>
 
 <ol>
-<li>For each external member of advisory committee unique entry is created. There is no duplication of details of external members of scholar advisory committee if they are advisors of more than one shcolar.</li>
+<li>Complex in implementation. Many migrations with morphs relation are created.
+<br> </br></li>
 </ol></li>
-<li>Cons
-
-<ol>
-<li>Complex in implementation. Many migrations with morphs relation are created.</li>
 </ol></li>
-</ul></li>
-<li><h3>What we implemented</h3>
+<li><h4><strong>What we implemented</strong></h4>
 
 <p>Since all department faculty members and DU college teachers are stored in <code>users</code> table, one more boolean attribute in the table <code>is_cosupervisor</code> is added which is set to false by default and true if user is cosupervisor. One more category is added in <code>users</code> table name <code>External</code>. All details of externals are stored in <code>users</code> table. These externals can be cosupervisors or external member of advisory committee. New migration <code>advisor_scholar</code> for storing other members of  scholar advisory committee is created. <code>advisor_scholar</code> has many to one relation with <code>scholars</code> table and refer to <code>users</code> table for other member.</p>
 
-<ul>
-<li>Pros
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Easy to implement and understand.</li>
 <li>For each external (whether cosupervisor or advisory committee member) only one entry is created.</li>
 <li>No new migration for cosupervisors and externals are created.</li>
-</ol></li>
-<li>Cons
+</ol>
+
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Size of <code>users</code> table increases.</li>
 </ol></li>
-</ul></li>
 </ul>
 
-<h2>Research Committee of a Scholar</h2>
+<h3>Research Committee of a Scholar</h3>
 
 <p>A PhD scholar has a <code>research committee</code> consisting of 3-4 members.</p>
 
@@ -375,8 +386,8 @@
   </ol>
 </blockquote>
 
-<p>The supervisor and cosupervisor can only be set by the office, while the other members (adviors) of the research committee are set by the scholar's supervisor. 
-Moreover, any of these members can be replaced by the same authority as above. Once replaced, the constituent members need to be recorded with their tenure. An update takes place without recording a members's tenure, while a replacement means changing the member and creating a record of the previous entry with their tenure.</p>
+<p>The supervisor and cosupervisor can only be set by the office, while the other members (advisors) of the research committee are set by the scholar's supervisor. 
+Moreover, any of these members can be replaced by the same authority as above. Once replaced, the constituent members need to be recorded with their tenure. An update takes place without recording a member's tenure, while a replacement means changing the member and creating a record of the previous entry with their tenure.</p>
 
 <p>For eg:
 If the research committee of a scholar consists of - <code>Supervisor 'A', Cosupervisor 'B' and external 'C'</code></p>
@@ -400,115 +411,90 @@ If the research committee of a scholar consists of - <code>Supervisor 'A', Cosup
 </blockquote>
 
 <ul>
-<li>### Problem</li>
-</ul>
+<li><h4><strong>Problem</strong></h4>
 
-<p>Storing a scholar's supervisor, cosupervisor and advisors along with maintaining a record of all three.</p>
-
-<ul>
-<li><h3>Solutions</h3>
+<p>Storing a scholar's supervisor, cosupervisor and advisors along with maintaining a record of all three.</p></li>
+<li><h4><strong>Solutions</strong></h4>
 
 <ol>
-<li>Creating json columns in the <code>scholars</code> table for records.</li>
-</ol>
+<li><p>Creating json columns in the <code>scholars</code> table for records.</p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Need not create new migrations.</li>
-<li>Details of any member would always remain saved even after they were deleted from the app an an user/external.</li>
+<li>Details of any member would always remain saved even after they were deleted from the app as user/external.</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Storing these as json columns bulked up the scholars table.</li>
-<li><p>While deletion of an user is a rare occurence, them updating their details was an actual use-case. json columns could not have handled this relationship.</p></li>
-<li><p>Create a single pivot table named <code>research_committee</code></p></li>
-</ol>
+<li>While deletion of a user is a rare occurence, them updating their details was an actual use-case. json columns could not have handled this relationship.</li>
+</ol></li>
+<li><p>Create a single pivot table named <code>research_committee</code></p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
-<li>Each entry from this table correspondeds to an user. Hence, any update in their details was reflected here.</li>
+<li>Each entry from this table correspondeds to a user. Hence, any update in their details was reflected here.</li>
 <li>Seperation of advisors from scholars was more clearer.</li>
 <li>Their tenure could be recorded using two pivot columns, start and end date.</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
-<li><p>This approach required for us to create a distinction between a scholar's supervisor, coaupervisor and advisors. For eg, the user being a cosupervisor(is_cosupervisor = true) could not be used as a dictinction since scholar B's cosupervisor could be an advisor for scholar B.</p></li>
-<li><p>Create 3 seperate pivot tables for scholar supervisors, cosupervisors and advisors</p></li>
-</ol>
+<li>This approach required for us to create a distinction between a scholar's supervisor, cosupervisor and advisors. For eg, the user being a cosupervisor(is_cosupervisor = true) could not be used as a distinction since scholar B's cosupervisor could be an advisor for scholar B.</li>
+</ol></li>
+<li><p>Create 3 seperate pivot tables for scholar supervisors, cosupervisors and advisors</p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>All 3 from solution 2</li>
 <li>The three different tables handled distinction naturally.</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
-<li>More migrations</li>
+<li>More migrations
+<br> </br></li>
 </ol></li>
-<li><h3>What we implemented</h3>
+</ol></li>
+<li><h4><strong>What we implemented</strong></h4>
 
 <p>We went ahead with approach 3 so that any handling of these authorities could be handled easily in future as well. This also offered a clearer design.</p></li>
 </ul>
 
-<h2>Publications</h2>
+<h3>Publications</h3>
 
 <ul>
-<li>### Problem</li>
-</ul>
+<li><h4><strong>Problem</strong></h4>
 
-<p>Research scholars and supervisors have two kinds of publications - journals and conferences.</p>
-
-<p>Both these types of publications have more common attributes than uncommon. Journals have a publisher and a number whereas a conference has a city and country. Except for these differences rest all details are the same. Moreover, any publication can have many presentations.</p>
-
-<ul>
-<li><h3>Solutions</h3>
+<p>Research scholars and supervisors have two kinds of publications - journals and conferences.
+Both these types of publications have more common attributes than uncommon. Journals have a publisher and a number whereas a conference has a city and country. Except for these differences rest all details are the same. Moreover, any publication can have many presentations.</p></li>
+<li><h4><strong>Solutions</strong></h4>
 
 <ol>
-<li>Create different tables for journals and conferences</li>
-</ol>
+<li><p>Create different tables for journals and conferences</p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Clearer distinction between the two types.</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>This would have required us to create a morph type in presentations to find the associated publication, which although achievable, was a bit against the idea that a publication had a presentation - whether it was a journal or conference did not make a difference.</li>
-<li><p>Scholar or users would have to have two different relationships for finding their associated journals and conferences.</p></li>
-<li><p>Creating a same table for both</p></li>
-</ol>
+<li>Scholar or users would have to have two different relationships for finding their associated journals and conferences.</li>
+</ol></li>
+<li><p>Creating a same table for both</p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Removing duplication of a table structure.</li>
@@ -516,76 +502,65 @@ If the research committee of a scholar consists of - <code>Supervisor 'A', Cosup
 <li>Scholar and users have a hasMany relationship for publications, scope on which could be built to find journals and conferences.</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
-<li>A pair of columns is null in each type (as mentioned in the description)</li>
+<li>A pair of columns is null in each type (as mentioned in the description)
+<br> </br></li>
 </ol></li>
-<li><h3>What we implemnted</h3>
+</ol></li>
+<li><h4><strong>What we implemented</strong></h4>
 
-<p>We went ahead with the second approach to not create duplications and distinction between the two types based on two trivial attributes. This also made creating relationships easier. Finally, relationships and scopes related to publications was extracted to a trait - <code>HasPublications</code>.</p>
-
-<p>Since scholars and supervisor profiles extend two different types of layouts, their controllers were created separately, though making use of view partials wherever achievable. (think forms and index details)</p></li>
+<p>We went ahead with the second approach to not create duplications and distinction between the two types based on two trivial attributes. This also made creating relationships easier. Finally, relationships and scopes related to publications was extracted to a trait - <code>HasPublications</code>.
+Since scholars and supervisor profiles extend two different types of layouts, their controllers were created separately, though making use of view partials wherever achievable. (think forms and index details)</p></li>
 </ul>
 
-<h2>Scholar Requests</h2>
+<h3>Scholar Requests</h3>
 
 <ul>
-<li>### Problem</li>
-</ul>
+<li><h4><strong>Problem</strong></h4>
 
 <p>A scholar at the end of their tenure requests for a <code>Phd-Seminar</code> and <code>Thesis Title Approval</code> (mentioned Title Approval in the app). Their supervisor request for an <code>examiner</code> for them. All of these requests are one-time only.
-We needed to maintain these requets` date and status.</p>
-
-<ul>
-<li><h3>Solutions</h3>
+We needed to maintain these requets` date and status.</p></li>
+<li><h4><strong>Solutions</strong></h4>
 
 <ol>
-<li>A common table for all three requests.</li>
-</ol>
+<li><p>A common table for all three requests.</p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Lesser number of migrations</li>
 <li>All scholar request types were contained in one table</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
 <li>Had to save the <code>type</code> of request with every record.</li>
 <li>All the three types had a few (1-2) different types of attributes. These had to be left nullable.</li>
 <li>While the requests are singular now, they could become multiple in future. All the three kinds have different requirements for authorizations, more differentiated if they become multiple requests. The common policy file had to contain different methods of authorization for them.</li>
-<li>3 different tables for all three types of requests.</li>
-</ol>
+</ol></li>
+<li><p>Create 3 different tables for all three types of requests.</p>
 
-<ul>
-<li>Pros</li>
-</ul>
+<h5><strong>Pros</strong></h5>
 
 <ol>
 <li>Clearer distinction between requests.</li>
 <li>Authorisation policies contained respective logic only.</li>
 </ol>
 
-<ul>
-<li>Cons</li>
-</ul>
+<h5><strong>Cons</strong></h5>
 
 <ol>
-<li>More migrations</li>
+<li>More migrations
+<br> </br></li>
 </ol></li>
-<li><h3>What we implemented</h3>
+</ol></li>
+<li><h4><strong>What we implemented</strong></h4>
 
 <p>We went ahead with the second approach for clarity between requests and their authorisation logic.
-Keeping a common table would have been benficial if there were less differences and the table could be made generic for future requests. Here it did not seem like so. Hence, we created seperate table for all three.</p></li>
+Keeping a common table would have been benificial if there were less differences and the table could be made generic for future requests. Here it did not seem like so. Hence, we created seperate table for all three.</p></li>
 </ul>
         </div>
     </div>

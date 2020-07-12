@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Description of the problem statement">
+        <meta name="description" content="This page explains everything related to the deployment, server requirments, how to deploy using FTP etc.">
 
         <meta property="og:site_name" content="DUCS Office Portal Docs"/>
-        <meta property="og:title" content="Problem Description | DUCS Office Portal Docs"/>
-        <meta property="og:description" content="Description of the problem statement"/>
-        <meta property="og:url" content="https://gautamswati.github.io/ducs-office-automation-docs/docs/problem-statement"/>
+        <meta property="og:title" content="Deployment | DUCS Office Portal Docs"/>
+        <meta property="og:description" content="This page explains everything related to the deployment, server requirments, how to deploy using FTP etc."/>
+        <meta property="og:url" content="https://gautamswati.github.io/ducs-office-automation-docs/docs/deployment"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>DUCS Office Portal Docs | Problem Description</title>
+        <title>DUCS Office Portal Docs | Deployment</title>
 
         <link rel="home" href="https://gautamswati.github.io/ducs-office-automation-docs">
         <link rel="icon" href="/favicon.ico">
@@ -80,7 +80,7 @@
             <li class="pl-4">
             
         <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/problem-statement"
-            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Problem Statment
         </a>
@@ -143,7 +143,7 @@
             <li class="pl-4">
             
         <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/deployment"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             Deployment
         </a>
@@ -180,9 +180,75 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h2>Problem Description</h2>
+            <h2>Deployment</h2>
 
-<p>The office at DUCS has been always managing a major part of their work on paper, which means a  umber of registers and the workload to manage them.  Remarks or instructions on any official document are passed verbally. Searching for a specific entry consumes time and there is very little margin for error rectification. The office also collects data from teachers ourside DUCS but employed at DU. Even when information is aggregated online or uploaded as files, it is stored on shared resources, which are decided as requied. Naturally this means that different people then end up using different resources for the same task. For eg, to collect data from teachers on the courses that they teach, forms are created and overseed by an individual person. They are stored on their work space and shared as needed. The office along with the faculty also receives and manages forms received from research scholars on their academic track, tracks and forwards status on their requests on leaves, seminars and courseworks and maintains a record on their admission details. The tasks pertaining to the scholar could be moved to their own responsibility under the guidance and invovlement of their mentors.  To solve all of the above problems, the department needed an automated, centralised platform to shift their work and divide responsibility between all parties involved.</p>
+<p>The website is hosted at DUCC's servers. We requested a sub domain on exisitng <code>cs.du.ac.in</code> domain and hosting services from DUCC to help deployment of our application.</p>
+
+<p>Here is the List of Services received from DUCC:</p>
+
+<ul>
+<li>A Subdomain office.cs.du.ac.in with a shared hosting server space.</li>
+<li>A cPanel to manage our server (databases, ftp users, etc)</li>
+<li>SFTP Access to server directory.</li>
+<li>Access to phpMyAdmin to manage our server database.</li>
+</ul>
+
+<p>Thanks to <strong>Miss. Seema Sirpal</strong> who helped us getting the hosting services from DUCC.</p>
+
+<p>To begin with deployment we need to first prepare the application locally and then deploy it to the server.</p>
+
+<h3>1. Prepare Application Locally</h3>
+
+<p>Before you can upload the application to server using FTP, you need to prepare our application for production on our local system. Our task here is to get the application running in production mode so that we can upload the application as it is to the FTP server.</p>
+
+<p>To begin with, make sure you have all the prerequisites installed on your system as mentioned in the projecct's <a href="https://github.com/gautamswati/ducs-office-automation/blob/master/readme.md#installing-prerequisites">readme</a>.</p>
+
+<blockquote>
+  <p><strong>Tip:</strong> We advise you to begin with a freshly cloned application in a seperate director rather than using the same version you are using for development, to avoid wierd issues that may occur due to mismatched/overwritten files.</p>
+</blockquote>
+
+<p>Steps <strong>4-6</strong> are required <em>only</em> if there is a change in database.</p>
+
+<ol>
+<li><strong>Install Dependencies</strong>: After a fresh clone you'd need to install all the JS &amp; PHP dependencies. To install dependecies run the following one by one.
+<code>npm install
+composer install</code></li>
+<li><strong>Build JS/CSS Assets for production</strong>: To build assets you'd simply run <code>npm run production</code>.</li>
+<li><strong>Configure Environment Variables</strong>: Duplicate the example <code>.env.example</code> file to <code>.env</code> and then generate application key using <code>php artisan key:generate</code>. You won't need to change any other variables just yet.</li>
+<li><strong>Cache compiled views</strong>: Cache the compiled views using <code>php artisan view:cache</code>. This will compile and cache all the views to <code>storage/framework/views</code>, you will need to upload this directory to the server so our application in production wont need to compile the views on the fly, resulting in a performance improvement.</li>
+<li><p><strong>Create fresh local database</strong>: Create a fresh database (say <code>ducs_prod</code>) in your local mysql instance.</p>
+
+<p>Then, export the existing records from the production database on the server using phpMyAdmin, to a <code>.sql</code> file, and import this <code>.sql</code> file to your local database using phpMyAdmin/adminer on your local system.</p></li>
+<li><strong>Configure Database &amp; Run Migrations</strong>: Change environment variables according to the database created and Run migrations using <code>php artisan migrate</code>.</li>
+<li><strong>Export Database to .sql file</strong>: Using adminer/phpMyAdmin UI you can export the whole database (with all data and structure) to a .sql file. Store .sql somewhere in your system, you would need this to export the modified database structure to the server.</li>
+</ol>
+
+<blockquote>
+  <p><strong>Caution:</strong> Avoid changing the structure of existing tables, that may cause data loss, if you didn't write migrations properly to map existing data to new structure. It is advised to make sure there is no data loss at this point, and only after that proceed further.</p>
+</blockquote>
+
+<h3>2. Upload to Server Directory</h3>
+
+<p>Once we have the application's production build ready, we can now proceed to upload the files to the server, after some cleanup.</p>
+
+<ol>
+<li><strong>Cleanup existing files</strong>: Remove everything from the server except the following files/directories:
+
+<ul>
+<li><code>.env</code> -  you'd only change this file only if required.</li>
+<li><code>storage/app</code> - this folder contains uploaded files you dont want to remove those.</li>
+<li><code>storage/framework/cache</code> - this folder contains the cache data some of which might be important.</li>
+<li><code>vendor</code> (you'd need to remove this folder and upload again if you have updated/added new PHP dependencies)</li>
+</ul></li>
+<li><strong>Copy files</strong>: We would copy the application file in few steps.
+
+<ul>
+<li>First, copy all the files/directories in the root to the server directory except <code>node_modules</code>, <code>.env</code>, <code>tests</code>, and <code>storage</code>.</li>
+<li>Next, You'd copy the compiled views to the server, by copying <code>storage/framework/views</code> to the server with same directory structure.</li>
+</ul></li>
+<li><strong>Export database</strong>: Logon to sever's phpMyAdmin and import the <code>.sql</code> file that you export in the step 1.7. You can ignore this step if you have made no changes to the database.</li>
+<li><strong>Turn on/off Debug mode</strong>: You might want to switch to debug mode if the application doesn't seem to work on production and debug the problems. Set <code>APP_DEBUG=true</code> and <code>APP_ENV=local</code>. Make sure your turn off debug mode and set the <code>APP_ENV</code> back to <code>production</code>, once you are done with deployment.</li>
+</ol>
         </div>
     </div>
 </section>

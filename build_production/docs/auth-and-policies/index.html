@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Description of the problem statement">
+        <meta name="description" content="Authentication &amp; Authorization logic within the application">
 
         <meta property="og:site_name" content="DUCS Office Portal Docs"/>
-        <meta property="og:title" content="Problem Description | DUCS Office Portal Docs"/>
-        <meta property="og:description" content="Description of the problem statement"/>
-        <meta property="og:url" content="https://gautamswati.github.io/ducs-office-automation-docs/docs/problem-statement"/>
+        <meta property="og:title" content="Authorization Policies | DUCS Office Portal Docs"/>
+        <meta property="og:description" content="Authentication &amp; Authorization logic within the application"/>
+        <meta property="og:url" content="https://gautamswati.github.io/ducs-office-automation-docs/docs/auth-and-policies"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>DUCS Office Portal Docs | Problem Description</title>
+        <title>DUCS Office Portal Docs | Authorization Policies</title>
 
         <link rel="home" href="https://gautamswati.github.io/ducs-office-automation-docs">
         <link rel="icon" href="/favicon.ico">
@@ -80,7 +80,7 @@
             <li class="pl-4">
             
         <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/problem-statement"
-            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Problem Statment
         </a>
@@ -107,7 +107,7 @@
             <li class="pl-4">
             
         <a href="https://gautamswati.github.io/ducs-office-automation-docs/docs/auth-and-policies"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             Authentication &amp; Authorization
         </a>
@@ -180,9 +180,57 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h2>Problem Description</h2>
+            <h2>Authentication &amp; Authorization</h2>
 
-<p>The office at DUCS has been always managing a major part of their work on paper, which means a  umber of registers and the workload to manage them.  Remarks or instructions on any official document are passed verbally. Searching for a specific entry consumes time and there is very little margin for error rectification. The office also collects data from teachers ourside DUCS but employed at DU. Even when information is aggregated online or uploaded as files, it is stored on shared resources, which are decided as requied. Naturally this means that different people then end up using different resources for the same task. For eg, to collect data from teachers on the courses that they teach, forms are created and overseed by an individual person. They are stored on their work space and shared as needed. The office along with the faculty also receives and manages forms received from research scholars on their academic track, tracks and forwards status on their requests on leaves, seminars and courseworks and maintains a record on their admission details. The tasks pertaining to the scholar could be moved to their own responsibility under the guidance and invovlement of their mentors.  To solve all of the above problems, the department needed an automated, centralised platform to shift their work and divide responsibility between all parties involved.</p>
+<h3>Authentication</h3>
+
+<p>The application uses <a href="https://laravel.com/docs/7.x/authentication">Laravel's authentication</a> configured out of the box.</p>
+
+<p>The project started with the default guard <code>web</code> used to authenticate <code>users</code>. Every resource revolved around the staff of DUCS. Midway into the project we introduced scholars. Since their interaction with the app was seperate from that of the staff, we created a new guard named <code>scholars</code> for them. Effectively, anybody can log into the application either as a user or as a scholar and each request is authenticated using either guards.</p>
+
+<h3>Authorization</h3>
+
+<p>We have made use of <a href="https://laravel.com/docs/7.x/authorization#creating-policies">Laravel Policy</a> to authenticate user actions.</p>
+
+<p>The policies autorize actions on the resource that they are defined on. The policy methods are mapped to a controller method on its corresponding resource.</p>
+
+<p>The naming convention followed is like so:</p>
+
+<blockquote>
+  <p>Note: By convention, to authorize a <code>update</code> action on <code>IncomingLetter</code> model the framework check if there exists an <code>IncomingLetterPolicy</code>, and if it does, it calls the <code>update</code> method to check if the user should be allowed to perform the action. If the Policy does not exist or method does not exist, user is <em>not</em> allowed.</p>
+</blockquote>
+
+<p>While a major chunk of actions could be authorised against <a href="./permissions#list-of-permissions">permissions</a> that the user has, a few of them required a combination of permissions and custom logic as defined by the use-case.</p>
+
+<p>For the first case, consider example</p>
+
+<pre><code>#IncomingLetterPolicy#view
+
+// determine if the user can view an incoming letter 
+
+public function view(User $user, IncomingLetter $letter)
+{
+    return $user-&gt;can('incoming letters:view');
+}
+</code></pre>
+
+<p>For the second,</p>
+
+<pre><code>LeavePolicy#respond
+
+// determine if the user can respond to a scholar leave
+
+public function respond($user, Leave $leave)
+{
+    return get_class($user) === User::class
+        &amp;&amp; $user-&gt;can('leaves:respond')
+        &amp;&amp; in_array($leave-&gt;status, [LeaveStatus::APPLIED, LeaveStatus::RECOMMENDED]);
+}
+</code></pre>
+
+<p>Perrmissions are only created for users(i.e the office staff, faculty and the UG teachers). Since, scholars use the application to maintain their individual profiles, permissions do not govern their actions. The overlying condition is them being owner of the instance of the resource they interact with.</p>
+
+<p>Moreover, there exists a super-admin in the application allowed to act bypassing any permissions. This is to allow extra flexibility and reduce margin of error.</p>
         </div>
     </div>
 </section>
