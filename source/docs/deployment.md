@@ -29,7 +29,7 @@ To begin with, make sure you have all the prerequisites installed on your system
 
 Steps **4-6** are required *only* if there is a change in database.
 
-1. **Install Dependencies**: After a fresh clone you'd need to install all the JS & PHP depeendencies. To install dependecies run the following one by one.
+1. **Install Dependencies**: After a fresh clone you'd need to install all the JS & PHP dependencies. To install dependecies run the following one by one.
     ```
     npm install
     composer install
@@ -48,7 +48,7 @@ Steps **4-6** are required *only* if there is a change in database.
 ### 2. Upload to Server Directory
 Once we have the application's production build ready, we can now proceed to upload the files to the server, after some cleanup.
 
-1. **Cleanup existing files**: Remove everything from the server except the following files/direcotries:
+1. **Cleanup existing files**: Remove everything from the server except the following files/directories:
     - `.env` -  you'd only change this file only if required.
     - `storage/app` - this folder contains uploaded files you dont want to remove those.
     - `storage/framework/cache` - this folder contains the cache data some of which might be important.

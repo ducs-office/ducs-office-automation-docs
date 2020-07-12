@@ -12,7 +12,7 @@ We choose [Test-driven development(TDD)](https://en.wikipedia.org/wiki/Test-driv
 
 | Unit Tests | Feature Tests | Total Tests | Assertions |
 | ---------- | ------------- | ----------- | ---------- |
-| 72         | 500           | 572         | 1973       |
+| 72         | 500           | 572         | 1940       |
 
 
 You can run whole test suite as 

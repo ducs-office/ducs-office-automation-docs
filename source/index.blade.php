@@ -8,7 +8,7 @@
 
             <h2 id="intro-powered-by-jigsaw" class="font-light mt-4">University of Delhi</h2>
 
-            <p class="text-lg">A guide for getting started with the portal's development<br class="hidden sm:block"> Read for a better understanding of the project and contribute</p>
+            <p class="text-lg">A guide for getting started with the portal's development</p>
 
             <div class="flex my-10">
                 <a href="{{ $page->url('/docs/getting-started') }}" title="{{ $page->siteName }} getting started" class="bg-blue-500 hover:bg-blue-600 font-normal text-white hover:text-white rounded mr-4 py-2 px-6">Get Started</a>

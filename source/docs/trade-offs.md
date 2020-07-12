@@ -7,7 +7,7 @@ section: content
 
 ## Tradeoffs
 
-We discuss here some of the problems we encountered during the developmment, the solutions for them and the trade-offs in implementing them.
+We discuss here some of the problems we encountered during the development, the solutions for them and the trade-offs in implementing them.
 
 ### Letter
 
@@ -45,7 +45,7 @@ We discuss here some of the problems we encountered during the developmment, the
   <br> </br>
 
 * #### **What we implemented**
-  Assuming frequency of deletion of letters is negligible and user always enter record in order in which letter is received or sent we choose to auto generate serial number. We stored latest value of `XXXX` corresponding to every year and type of letter in cache. On creation of letter, value of `XXXX` of corresponding year and type incrmented and serial number of that letter is assigned  with the value of `XXXX` accordingly. Once letter is created type of outgoing letter is not editable. 
+  Assuming frequency of deletion of letters is negligible and user always enter record in order in which letter is received or sent we choose to auto generate serial number. We stored latest value of `XXXX` corresponding to every year and type of letter in cache. On creation of letter, value of `XXXX` of corresponding year and type incremented and serial number of that letter is assigned  with the value of `XXXX` accordingly. Once letter is created type of outgoing letter is not editable. 
     ##### **Pros**
     1. User friendly.
     2. Easy to implement.        
@@ -91,7 +91,7 @@ We discuss here some of the problems we encountered during the developmment, the
    
     2. Details of other members of advisory committee who are externals can be stored in separate migration `externals`. Similar to above solution make separate migration for cosupervisors and other members of advisory committee of scholar. Only difference is now each entry in `advisor_scholar`  would be referring to `users` table (if member is department faculty), cosupervisors table (if member is cosupervisor) or `externals` (if member is external).
       ##### **Pros**
-      1. For each external member of advisory committee unique entry is created. There is no duplication of details of external members of scholar advisory committee if they are advisors of more than one shcolar.
+      1. For each external member of advisory committee unique entry is created. There is no duplication of details of external members of scholar advisory committee if they are advisors of more than one scholar.
       ##### **Cons**
       1. Complex in implementation. Many migrations with morphs relation are created.
   <br> </br>
@@ -115,8 +115,8 @@ A PhD scholar has a `research committee` consisting of 3-4 members.
 > 3. An external - as stated above
 > 4. A faculty teacher
 
-The supervisor and cosupervisor can only be set by the office, while the other members (adviors) of the research committee are set by the scholar's supervisor. 
-Moreover, any of these members can be replaced by the same authority as above. Once replaced, the constituent members need to be recorded with their tenure. An update takes place without recording a members's tenure, while a replacement means changing the member and creating a record of the previous entry with their tenure.
+The supervisor and cosupervisor can only be set by the office, while the other members (advisors) of the research committee are set by the scholar's supervisor. 
+Moreover, any of these members can be replaced by the same authority as above. Once replaced, the constituent members need to be recorded with their tenure. An update takes place without recording a member's tenure, while a replacement means changing the member and creating a record of the previous entry with their tenure.
 
 For eg:
 If the research committee of a scholar consists of - `Supervisor 'A', Cosupervisor 'B' and external 'C'`
@@ -140,18 +140,18 @@ and the new advisors will be like so:
     1. Creating json columns in the `scholars` table for records.
       ##### **Pros**
       1. Need not create new migrations.
-      2. Details of any member would always remain saved even after they were deleted from the app an an user/external.
+      2. Details of any member would always remain saved even after they were deleted from the app as user/external.
       ##### **Cons**
       1. Storing these as json columns bulked up the scholars table.
-      2. While deletion of an user is a rare occurence, them updating their details was an actual use-case. json columns could not have handled this relationship.
+      2. While deletion of a user is a rare occurence, them updating their details was an actual use-case. json columns could not have handled this relationship.
 
     2. Create a single pivot table named `research_committee` 
       ##### **Pros**
-      1. Each entry from this table correspondeds to an user. Hence, any update in their details was reflected here.
+      1. Each entry from this table correspondeds to a user. Hence, any update in their details was reflected here.
       2. Seperation of advisors from scholars was more clearer.
       3. Their tenure could be recorded using two pivot columns, start and end date.
       ##### **Cons**
-      1. This approach required for us to create a distinction between a scholar's supervisor, coaupervisor and advisors. For eg, the user being a cosupervisor(is_cosupervisor = true) could not be used as a dictinction since scholar B's cosupervisor could be an advisor for scholar B. 
+      1. This approach required for us to create a distinction between a scholar's supervisor, cosupervisor and advisors. For eg, the user being a cosupervisor(is_cosupervisor = true) could not be used as a distinction since scholar B's cosupervisor could be an advisor for scholar B. 
 
     3. Create 3 seperate pivot tables for scholar supervisors, cosupervisors and advisors 
       ##### **Pros**
@@ -218,4 +218,4 @@ and the new advisors will be like so:
 
 * #### **What we implemented**
   We went ahead with the second approach for clarity between requests and their authorisation logic.
-  Keeping a common table would have been benficial if there were less differences and the table could be made generic for future requests. Here it did not seem like so. Hence, we created seperate table for all three.
+  Keeping a common table would have been benificial if there were less differences and the table could be made generic for future requests. Here it did not seem like so. Hence, we created seperate table for all three.
