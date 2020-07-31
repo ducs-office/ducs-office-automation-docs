@@ -1,1 +1,1 @@
-## Documentation for [DUCS-Office-Automation](https://github.com/gautamswati/ducs-office-automation) 
+## Documentation for [DUCS-Office-Automation](https://github.com/ducs-office/ducs-office-automation) 

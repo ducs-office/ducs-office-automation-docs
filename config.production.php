@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://gautamswati.github.io/ducs-office-automation-docs',
+    'baseUrl' => 'https://ducs-office.github.io/ducs-office-automation-docs/',
     'production' => true,
 
     // DocSearch credentials

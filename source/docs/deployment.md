@@ -23,7 +23,7 @@ To begin with deployment we need to first prepare the application locally and th
 ### 1. Prepare Application Locally
 Before you can upload the application to server using FTP, you need to prepare our application for production on our local system. Our task here is to get the application running in production mode so that we can upload the application as it is to the FTP server.
 
-To begin with, make sure you have all the prerequisites installed on your system as mentioned in the projecct's [readme](https://github.com/gautamswati/ducs-office-automation/blob/master/readme.md#installing-prerequisites). 
+To begin with, make sure you have all the prerequisites installed on your system as mentioned in the projecct's [readme](https://github.com/ducs-office/ducs-office-automation/blob/master/readme.md#installing-prerequisites). 
 
 > **Tip:** We advise you to begin with a freshly cloned application in a seperate director rather than using the same version you are using for development, to avoid wierd issues that may occur due to mismatched/overwritten files.
 

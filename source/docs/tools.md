@@ -47,12 +47,12 @@ We used [Adminer](https://www.adminer.org/) and [phpMyAdmin](https://www.phpmyad
 
 ### Continuous Integration
 
-We used [Travis CI](https://github.com/marketplace/travis-ci) and [Github Actions](https://github.com/features/actions)to build, and test our [project](https://github.com/gautamswati/ducs-office-automation) hosted on github.
+We used [Travis CI](https://github.com/marketplace/travis-ci) and [Github Actions](https://github.com/features/actions)to build, and test our [project](https://github.com/ducs-office/ducs-office-automation-docs) hosted on github.
 
 
 ## Documentation
 
-We used [Jigsaw](https://jigsaw.tighten.co/) for documenting the [project](https://github.com/gautamswati/ducs-office-automation). 
+We used [Jigsaw](https://jigsaw.tighten.co/) for documenting the [project](https://github.com/ducs-office/ducs-office-automation-docs). 
 
 
 
