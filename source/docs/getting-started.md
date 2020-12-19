@@ -5,18 +5,15 @@ extends: _layouts.documentation
 section: content
 ---
 
-
 ## Getting Started {#getting-started}
 
-This project aims at automating the office work at the Department of Computer Science, University of Delhi (aka DUCS). You can also read the [problem description](./problem-statement.md) for more details.
-
+This project aims at automating the office work at the Department of Computer Science, University of Delhi (aka DUCS). You can also read the [problem description](../problem-statement/) for more details.
 
 #### **Requirements**
 
- 
-This project is built with Laravel & Alpine.js. The Laravel framework has a few system requirements. All of these requirements are satisfied by the [Laravel Homestead](https://laravel.com/docs/6.x/homestead) virtual machine.
+This project is built with Laravel and Alpine.js. The Laravel framework has a few system requirements. All of these requirements are satisfied by the [Laravel Homestead](https://laravel.com/docs/6.x/homestead) virtual machine.
 
-However, if you are not using Homestead, you will need to make sure your local development server meets the following requirements. You can also find these listed in [laravel docs](https://laravel.com/docs/6.x#server-requirements).
+However, if you are not using Homestead, you will need to make sure your local development server meets the following requirements. You can also find these listed in [Laravel Docs](https://laravel.com/docs/6.x#server-requirements).
 
 * PHP >= 7.3.0
 * BCMath PHP Extension
@@ -27,25 +24,27 @@ However, if you are not using Homestead, you will need to make sure your local d
 * Tokenizer PHP Extension
 * XML PHP Extension
 
-Additionally, you would require to install [composer](https://getcomposer.org/) & [nodejs](https://nodejs.org/en/) to pull in all the project dependencies.
+Additionally, you would require to install [Composer](https://getcomposer.org/) and [NPM](https://www.npmjs.com/) to pull in all the project dependencies.
 
 #### **Installation**
 
 ###### Using `apt` package manager (Debian/Ubuntu)
+
 Before you begin installing make sure you run `sudo apt update` to get the latest version available.
 
 ```bash
-
-# if you do not have mysql installed on your system
+# if you do not have MySQL installed on your system
 sudo apt install mysql-server
 
-# php & required extensions
+# if you are running Ubuntu 18.04 or older
 sudo add-apt-repository ppa:ondrej/php
-sudo apt-get update
-sudo apt-get install php7.4 php7.4-mysql php7.4-xml php7.4-mbstring php7.4-bcmath php7.4-sqlite php7.4-json
+sudo apt update
 
-# composer & nodejs
-sudo apt install nodejs composer
+# PHP and required extensions
+sudo apt install php7.4 php7.4-mysql php7.4-xml php7.4-mbstring php7.4-bcmath php7.4-sqlite php7.4-json
+
+# Composer and NPM
+sudo apt install composer npm
 ```
 
 #### **Quick Start**
@@ -58,7 +57,7 @@ git clone https://github.com/ducs-office/ducs-office-automation.git
 
 * Install project dependencies
 
-Go to your project directory and install php dependencies using `composer`:
+Go to your project directory and install PHP dependencies using `composer`:
 
 ```bash
 composer install
@@ -70,7 +69,7 @@ Use `npm` to install all the required JavaScript dependencies.
 npm install
 ```
 
-To compile down the frontend assets like stylesheets (CSS) & javascript files use,
+To compile down the front end assets like style sheets (CSS) and JavaScript files, use:
 
 ```
 npm run dev
@@ -90,15 +89,17 @@ Create a duplicate file of `.env.example` as `.env`.
 cp .env.example .env
 ```
 
-* Generate an application key using: 
+* Generate an application key using:
+
 ```bash
 php artisan key:generate
-``` 
+```
+
 > The command will add an application key to your `.env` file.
 
-* Create new `mysql` user and database
+* Create a new `mysql` user and database
 
-Since the application uses MySql DBMS, you'd require a database and valid credentials.
+Since the application uses MySQL DBMS, you'd require a database and valid credentials.
 
 ```bash
 mysql -u root -h localhost -p
@@ -115,7 +116,8 @@ mysql> CREATE DATABASE office_automation;
 
 * Setup `Database` connection in `.env` file:
 
-Change the following configuration values: 
+Change the following configuration values:
+
 ```bash
 ...
 DB_DATABASE=office_automation
@@ -126,9 +128,9 @@ DB_PASSWORD=password
 
 * Add some default data for testing the app
 
-To begin browsing & testing the portal you'd need the application seeded with some dummy data.
+To begin browsing and testing the portal, you'd need the application seeded with some dummy data.
 
-To create all the tables & seed your database with dummy data, run:
+To create all the tables and seed your database with dummy data, run:
 
 ```
 php artisan migrate --seed
@@ -136,7 +138,7 @@ php artisan migrate --seed
 
 * Start Local Development Server
 
-This will serve the project at `localhost:8000`, you can now open this up in your browser using,
+This will serve the project at `localhost:8000`, you can now open this up in your browser using:
 
 ```bash
 php artisan serve
@@ -150,4 +152,3 @@ Use the following credentials to login as admin
 Email: admin@cs.du.ac.in
 Password: password
 ```
-
